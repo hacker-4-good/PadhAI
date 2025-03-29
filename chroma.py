@@ -5,7 +5,7 @@ import os
 import glob
 
 
-client = chromadb.PersistentClient(path = "Database")
+client = chromadb.PersistentClient(path = "DB")
 
 collection = client.create_collection(
     name="Algorithm", 
