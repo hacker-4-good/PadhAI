@@ -3,9 +3,10 @@ import dspy
 from dotenv import load_dotenv
 from dspy.retrieve.chromadb_rm import ChromadbRM
 from pydantic import BaseModel, Field
+import os
 load_dotenv()
 
-llm = dspy.PremAI(project_id=8883, api_key='XPa8IkQXNLt5zPbVS4CI7Pfot3H2FPFIV3', temperature=1)
+llm = dspy.Google(model='gemini-2.0-flash', api_key=os.environ["GOOGLE_API_KEY"])
 rm = ChromadbRM(
     collection_name = "Algorithm", 
     persist_directory = "DB", 
