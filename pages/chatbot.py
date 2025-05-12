@@ -34,23 +34,30 @@ def get_response(question):
 
 with s1:
     st.header("Ask Me 💭")
-    ask_question = st.audio_input("Ask a question:")
-    if ask_question:
-        audio_data = BytesIO(ask_question.read())
-
-        transcription = client.speech_to_text.convert(
-            file=audio_data,
-            model_id="scribe_v1",
-            tag_audio_events=True,
-            language_code="eng", 
-            diarize=True, 
-        )
-        question = transcription.text
-        with st.spinner('Waiting for response...'):
-            response = get_response(question)
-            time.sleep(2)  
-        st.session_state.history.append((question, response.answer))
-
+    option = st.selectbox(label="Select the input option", options=["Speak", "Write"])
+    if option=="Speak":
+        ask_question = st.audio_input("Ask a question:")
+        if ask_question:
+            audio_data = BytesIO(ask_question.read())
+            transcription = client.speech_to_text.convert(
+                file=audio_data,
+                model_id="scribe_v1",
+                tag_audio_events=True,
+                language_code="eng", 
+                diarize=True, 
+            )
+            question = transcription.text
+            with st.spinner('Waiting for response...'):
+                response = get_response(question)
+                time.sleep(2)  
+            st.session_state.history.append((question, response.answer))
+    if option=="Write":
+        question = st.text_input(label="Write your query here")
+        if question:
+            with st.spinner('Waiting for response...'):
+                response = get_response(question)
+                time.sleep(2)
+            st.session_state.history.append((question, response.answer))
     if st.session_state.history:
         for q, r in st.session_state.history:
             with st.chat_message("user"):
