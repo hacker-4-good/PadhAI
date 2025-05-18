@@ -32,6 +32,11 @@ def get_response(question):
     response = ChatbotRAG().forward(question=question)
     return response
 
+def stream(text: str):
+    for word in text.split(" "):
+        yield word + " "
+        time.sleep(0.02)
+
 with s1:
     st.header("Ask Me 💭")
     option = st.selectbox(label="Select the input option", options=["Speak", "Write"])
@@ -59,11 +64,17 @@ with s1:
                 time.sleep(2)
             st.session_state.history.append((question, response.answer))
     if st.session_state.history:
-        for q, r in st.session_state.history:
+        for i in range(len(st.session_state.history)-1):
+            q,r = st.session_state.history[i] 
             with st.chat_message("user"):
-                st.write(f"**Question:** {q}")
+                st.write(q)
             with st.chat_message("assistant"):
-                st.write(f"**Answer:** {r}")
+                st.write(r)
+        q, r = st.session_state.history[-1]
+        with st.chat_message("user"):
+            st.write_stream(stream(q))
+        with st.chat_message("assistant"):
+            st.write_stream(stream(r))
 
 with s2:
     if st.session_state.history:
