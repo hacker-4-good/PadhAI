@@ -1,19 +1,11 @@
-from chromadb.utils.embedding_functions import SentenceTransformerEmbeddingFunction 
+ 
 import dspy 
-from dotenv import load_dotenv
-from dspy.retrieve.chromadb_rm import ChromadbRM
 from pydantic import BaseModel, Field
-import os
-load_dotenv()
+from chroma import qdrant
 
-llm = dspy.Google(model='gemini-2.0-flash', api_key=os.environ["GOOGLE_API_KEY"])
-rm = ChromadbRM(
-    collection_name = "Algorithm", 
-    persist_directory = "DB", 
-    embedding_function = SentenceTransformerEmbeddingFunction()
-)
+llm = dspy.LM("gemini/gemini-2.5-pro", api_key="AIzaSyBxDjKA-_vVjdzcbfpNDjZnKZ_-ziHu8_w")
 
-dspy.configure(lm = llm, rm=rm)
+dspy.settings.configure(lm = llm)
 
 class QuerySignature(dspy.Signature):
     '''
@@ -43,24 +35,27 @@ class QuizSignature(dspy.Signature):
 
 
 class ChatbotRAG(dspy.Module):
-    def __init__(self, num_passage=3):
+    def __init__(self):
         super().__init__()
-        self.retrieve = dspy.Retrieve(k=num_passage)
         self.generate_answer = dspy.ChainOfThought(signature=QuerySignature)
 
     def forward(self, question):
-        context = self.retrieve(question).passages
-        print(context)
+        context = qdrant.search(
+            query=question,
+            search_type="similarity_score_threshold"  
+        )
         prediction = self.generate_answer(context = context, question=question)
         return dspy.Prediction(context=context, answer=prediction.answer)
 
 class QuizRAG(dspy.Module):
     def __init__(self):
         super().__init__() 
-        self.retrieve = dspy.Retrieve() 
         self.generate_quiz = dspy.TypedPredictor(QuizSignature)
     def forward(self, quiz_text):
-        context = self.retrieve(quiz_text).passages 
+        context = qdrant.search(
+            query=quiz_text,
+            search_type="similarity_score_threshold"
+        )
         quiz_input = QuizInput(topic=quiz_text, context=context)
         prediction = self.generate_quiz(input=quiz_input)
         return prediction
