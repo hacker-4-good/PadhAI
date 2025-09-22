@@ -1,9 +1,9 @@
- 
 import dspy 
 from pydantic import BaseModel, Field
 from chroma import qdrant
+import os
 
-llm = dspy.LM("gemini/gemini-2.5-pro", api_key="AIzaSyBxDjKA-_vVjdzcbfpNDjZnKZ_-ziHu8_w")
+llm = dspy.LM("gemini/gemini-2.0-flash", api_key=os.getenv("GOOGLE_API_KEY"))
 
 dspy.settings.configure(lm = llm)
 
@@ -50,7 +50,7 @@ class ChatbotRAG(dspy.Module):
 class QuizRAG(dspy.Module):
     def __init__(self):
         super().__init__() 
-        self.generate_quiz = dspy.TypedPredictor(QuizSignature)
+        self.generate_quiz = dspy.Predict(QuizSignature)
     def forward(self, quiz_text):
         context = qdrant.search(
             query=quiz_text,
