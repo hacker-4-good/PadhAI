@@ -92,6 +92,7 @@ langchain==0.3.27
 langchain-community==0.3.29
 langchain-core==0.3.76
 langchain-huggingface==0.3.1
+langchain-qdrant==0.2.1
 langchain-text-splitters==0.3.11
 langsmith==0.4.29
 litellm==1.77.3
