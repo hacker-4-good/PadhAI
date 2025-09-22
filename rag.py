@@ -50,12 +50,15 @@ class ChatbotRAG(dspy.Module):
 class QuizRAG(dspy.Module):
     def __init__(self):
         super().__init__() 
-        self.generate_quiz = dspy.Predict(QuizSignature)
+        self.generate_quiz = dspy.ChainOfThought(QuizSignature)
     def forward(self, quiz_text):
         context = qdrant.search(
             query=quiz_text,
             search_type="similarity_score_threshold"
         )
-        quiz_input = QuizInput(topic=quiz_text, context=context)
+        context_text = []
+        for doc in context:
+            context_text.append(str(doc.page_content))
+        quiz_input = QuizInput(topic=str(quiz_text), context=context_text)
         prediction = self.generate_quiz(input=quiz_input)
         return prediction
