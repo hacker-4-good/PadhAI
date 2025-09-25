@@ -8,6 +8,7 @@ from rag import ChatbotRAG
 from io import BytesIO
 from elevenlabs.client import ElevenLabs
 from web_content import *
+from config import ELEVENLABS_API_KEY
 
 st.markdown(hero_logo, unsafe_allow_html=True)
 
@@ -15,7 +16,7 @@ with st.sidebar:
     st.markdown(sidebar_logo, unsafe_allow_html=True)
 
 client = ElevenLabs(
-    api_key=os.getenv("ELEVENLABS_API_KEY"),
+    api_key=ELEVENLABS_API_KEY,
 )
 
 nltk.download('averaged_perceptron_tagger')
