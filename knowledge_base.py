@@ -1,12 +1,10 @@
 from qdrant_client import QdrantClient
 from qdrant_client.http.models import Distance, VectorParams
 from langchain_community.document_loaders import PyPDFLoader
-from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_qdrant import Qdrant
 from langchain_huggingface import HuggingFaceEmbeddings
 from langchain_community.document_loaders.pdf import PyPDFLoader
 import glob
-import os
 from dotenv import load_dotenv
 load_dotenv()
 from config import QDRANT_API_KEY
@@ -20,7 +18,7 @@ from config import QDRANT_API_KEY
 # )
 
 qdrant_client = QdrantClient(
-    url="https://8fadb7bd-1d0c-4822-83ed-2a204d4c20a1.eu-west-2-0.aws.cloud.qdrant.io:6333", 
+    url="https://c1d43b77-3bca-4506-94aa-04dbfd414478.eu-west-2-0.aws.cloud.qdrant.io:6333", 
     api_key=QDRANT_API_KEY,
 )
 
