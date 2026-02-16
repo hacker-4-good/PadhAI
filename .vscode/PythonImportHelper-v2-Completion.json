@@ -1,0 +1,525 @@
+[
+    {
+        "label": "streamlit",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "streamlit",
+        "description": "streamlit",
+        "detail": "streamlit",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "GoogleImageCrawler",
+        "importPath": "icrawler.builtin",
+        "description": "icrawler.builtin",
+        "isExtraImport": true,
+        "detail": "icrawler.builtin",
+        "documentation": {}
+    },
+    {
+        "label": "nltk",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "nltk",
+        "description": "nltk",
+        "detail": "nltk",
+        "documentation": {}
+    },
+    {
+        "label": "time",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "time",
+        "description": "time",
+        "detail": "time",
+        "documentation": {}
+    },
+    {
+        "label": "Search",
+        "importPath": "pytube",
+        "description": "pytube",
+        "isExtraImport": true,
+        "detail": "pytube",
+        "documentation": {}
+    },
+    {
+        "label": "ChatbotRAG",
+        "importPath": "rag",
+        "description": "rag",
+        "isExtraImport": true,
+        "detail": "rag",
+        "documentation": {}
+    },
+    {
+        "label": "QuizRAG",
+        "importPath": "rag",
+        "description": "rag",
+        "isExtraImport": true,
+        "detail": "rag",
+        "documentation": {}
+    },
+    {
+        "label": "ImageQuerySignature",
+        "importPath": "rag",
+        "description": "rag",
+        "isExtraImport": true,
+        "detail": "rag",
+        "documentation": {}
+    },
+    {
+        "label": "BytesIO",
+        "importPath": "io",
+        "description": "io",
+        "isExtraImport": true,
+        "detail": "io",
+        "documentation": {}
+    },
+    {
+        "label": "ElevenLabs",
+        "importPath": "elevenlabs.client",
+        "description": "elevenlabs.client",
+        "isExtraImport": true,
+        "detail": "elevenlabs.client",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "web_content",
+        "description": "web_content",
+        "isExtraImport": true,
+        "detail": "web_content",
+        "documentation": {}
+    },
+    {
+        "label": "hero_logo",
+        "importPath": "web_content",
+        "description": "web_content",
+        "isExtraImport": true,
+        "detail": "web_content",
+        "documentation": {}
+    },
+    {
+        "label": "sidebar_logo",
+        "importPath": "web_content",
+        "description": "web_content",
+        "isExtraImport": true,
+        "detail": "web_content",
+        "documentation": {}
+    },
+    {
+        "label": "*",
+        "importPath": "web_content",
+        "description": "web_content",
+        "isExtraImport": true,
+        "detail": "web_content",
+        "documentation": {}
+    },
+    {
+        "label": "ELEVENLABS_API_KEY",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "QDRANT_API_KEY",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "MISTRAL_API_KEY",
+        "importPath": "config",
+        "description": "config",
+        "isExtraImport": true,
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "QdrantClient",
+        "importPath": "qdrant_client",
+        "description": "qdrant_client",
+        "isExtraImport": true,
+        "detail": "qdrant_client",
+        "documentation": {}
+    },
+    {
+        "label": "Distance",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "VectorParams",
+        "importPath": "qdrant_client.http.models",
+        "description": "qdrant_client.http.models",
+        "isExtraImport": true,
+        "detail": "qdrant_client.http.models",
+        "documentation": {}
+    },
+    {
+        "label": "PyPDFLoader",
+        "importPath": "langchain_community.document_loaders",
+        "description": "langchain_community.document_loaders",
+        "isExtraImport": true,
+        "detail": "langchain_community.document_loaders",
+        "documentation": {}
+    },
+    {
+        "label": "Qdrant",
+        "importPath": "langchain_qdrant",
+        "description": "langchain_qdrant",
+        "isExtraImport": true,
+        "detail": "langchain_qdrant",
+        "documentation": {}
+    },
+    {
+        "label": "HuggingFaceEmbeddings",
+        "importPath": "langchain_huggingface",
+        "description": "langchain_huggingface",
+        "isExtraImport": true,
+        "detail": "langchain_huggingface",
+        "documentation": {}
+    },
+    {
+        "label": "PyPDFLoader",
+        "importPath": "langchain_community.document_loaders.pdf",
+        "description": "langchain_community.document_loaders.pdf",
+        "isExtraImport": true,
+        "detail": "langchain_community.document_loaders.pdf",
+        "documentation": {}
+    },
+    {
+        "label": "glob",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "glob",
+        "description": "glob",
+        "detail": "glob",
+        "documentation": {}
+    },
+    {
+        "label": "load_dotenv",
+        "importPath": "dotenv",
+        "description": "dotenv",
+        "isExtraImport": true,
+        "detail": "dotenv",
+        "documentation": {}
+    },
+    {
+        "label": "dspy",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "dspy",
+        "description": "dspy",
+        "detail": "dspy",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Field",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "qdrant",
+        "importPath": "knowledge_base",
+        "description": "knowledge_base",
+        "isExtraImport": true,
+        "detail": "knowledge_base",
+        "documentation": {}
+    },
+    {
+        "label": "Mistral",
+        "importPath": "mistralai",
+        "description": "mistralai",
+        "isExtraImport": true,
+        "detail": "mistralai",
+        "documentation": {}
+    },
+    {
+        "label": "base64",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "base64",
+        "description": "base64",
+        "detail": "base64",
+        "documentation": {}
+    },
+    {
+        "label": "get_response",
+        "kind": 2,
+        "importPath": "pages.chatbot",
+        "description": "pages.chatbot",
+        "peekOfCode": "def get_response(question):\n    response = ChatbotRAG().forward(question=question)\n    return response\ndef stream(text: str):\n    for word in text.split(\" \"):\n        yield word + \" \"\n        time.sleep(0.02)\nwith s1:\n    st.header(\"Ask Me 💭\")\n    option = st.selectbox(label=\"Select the input option\", options=[\"Speak\", \"Write\"])",
+        "detail": "pages.chatbot",
+        "documentation": {}
+    },
+    {
+        "label": "stream",
+        "kind": 2,
+        "importPath": "pages.chatbot",
+        "description": "pages.chatbot",
+        "peekOfCode": "def stream(text: str):\n    for word in text.split(\" \"):\n        yield word + \" \"\n        time.sleep(0.02)\nwith s1:\n    st.header(\"Ask Me 💭\")\n    option = st.selectbox(label=\"Select the input option\", options=[\"Speak\", \"Write\"])\n    if option==\"Speak\":\n        ask_question = st.audio_input(\"Ask a question:\")\n        if ask_question:",
+        "detail": "pages.chatbot",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "pages.chatbot",
+        "description": "pages.chatbot",
+        "peekOfCode": "client = ElevenLabs(\n    api_key=ELEVENLABS_API_KEY,\n)\nnltk.download('averaged_perceptron_tagger')\nnltk.download('punkt')\ngoogle_Crawler = GoogleImageCrawler(storage = {'root_dir': 'Images'})\ns1, s2 = st.columns([3,1])\nif 'history' not in st.session_state:\n    st.session_state.history = []\ndef get_response(question):",
+        "detail": "pages.chatbot",
+        "documentation": {}
+    },
+    {
+        "label": "google_Crawler",
+        "kind": 5,
+        "importPath": "pages.chatbot",
+        "description": "pages.chatbot",
+        "peekOfCode": "google_Crawler = GoogleImageCrawler(storage = {'root_dir': 'Images'})\ns1, s2 = st.columns([3,1])\nif 'history' not in st.session_state:\n    st.session_state.history = []\ndef get_response(question):\n    response = ChatbotRAG().forward(question=question)\n    return response\ndef stream(text: str):\n    for word in text.split(\" \"):\n        yield word + \" \"",
+        "detail": "pages.chatbot",
+        "documentation": {}
+    },
+    {
+        "label": "user_topic",
+        "kind": 5,
+        "importPath": "pages.quiz",
+        "description": "pages.quiz",
+        "peekOfCode": "user_topic = st.text_input(\"Enter the topic for the quiz:\")\nif user_topic and st.session_state.quiz_state is None:\n    prediction = QuizRAG().forward(quiz_text=user_topic)\n    st.session_state.quiz_state = {\n        \"question\": prediction.output.question,\n        \"options\": [option.option for option in prediction.output.options],\n        \"correct_option_index\": prediction.output.correct_option,\n        \"topic\": user_topic\n    }\nif st.session_state.quiz_state:",
+        "detail": "pages.quiz",
+        "documentation": {}
+    },
+    {
+        "label": "ELEVENLABS_API_KEY",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "ELEVENLABS_API_KEY = st.secrets[\"ELEVENLABS_API_KEY\"]\nMISTRAL_API_KEY = st.secrets[\"MISTRAL_API_KEY\"]\nQDRANT_API_KEY = st.secrets[\"QDRANT_API_KEY\"]",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "MISTRAL_API_KEY",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "MISTRAL_API_KEY = st.secrets[\"MISTRAL_API_KEY\"]\nQDRANT_API_KEY = st.secrets[\"QDRANT_API_KEY\"]",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "QDRANT_API_KEY",
+        "kind": 5,
+        "importPath": "config",
+        "description": "config",
+        "peekOfCode": "QDRANT_API_KEY = st.secrets[\"QDRANT_API_KEY\"]",
+        "detail": "config",
+        "documentation": {}
+    },
+    {
+        "label": "qdrant_client",
+        "kind": 5,
+        "importPath": "knowledge_base",
+        "description": "knowledge_base",
+        "peekOfCode": "qdrant_client = QdrantClient(\n    url=\"https://c1d43b77-3bca-4506-94aa-04dbfd414478.eu-west-2-0.aws.cloud.qdrant.io:6333\", \n    api_key=QDRANT_API_KEY,\n)\nqdrant_client.recreate_collection(\n    collection_name=\"Content\",\n    vectors_config=VectorParams(size=384, distance=Distance.COSINE),  # 384 is correct for MiniLM-L6-v2\n)\nembeddings = HuggingFaceEmbeddings(model_name=\"sentence-transformers/all-MiniLM-L6-v2\")\n# Add to Qdrant",
+        "detail": "knowledge_base",
+        "documentation": {}
+    },
+    {
+        "label": "embeddings",
+        "kind": 5,
+        "importPath": "knowledge_base",
+        "description": "knowledge_base",
+        "peekOfCode": "embeddings = HuggingFaceEmbeddings(model_name=\"sentence-transformers/all-MiniLM-L6-v2\")\n# Add to Qdrant\nqdrant = Qdrant(\n    client=qdrant_client,\n    collection_name=\"Content\",  # Match the created collection (table) name \n    embeddings=embeddings,\n)\npdf_files = glob.glob(\"PDFs/*.pdf\")\nfor pdf_file in pdf_files:\n    documents = PyPDFLoader(file_path=pdf_file).load()",
+        "detail": "knowledge_base",
+        "documentation": {}
+    },
+    {
+        "label": "qdrant",
+        "kind": 5,
+        "importPath": "knowledge_base",
+        "description": "knowledge_base",
+        "peekOfCode": "qdrant = Qdrant(\n    client=qdrant_client,\n    collection_name=\"Content\",  # Match the created collection (table) name \n    embeddings=embeddings,\n)\npdf_files = glob.glob(\"PDFs/*.pdf\")\nfor pdf_file in pdf_files:\n    documents = PyPDFLoader(file_path=pdf_file).load()\n    for i in range(len(documents)):\n        qdrant.add_documents([documents[i]])",
+        "detail": "knowledge_base",
+        "documentation": {}
+    },
+    {
+        "label": "pdf_files",
+        "kind": 5,
+        "importPath": "knowledge_base",
+        "description": "knowledge_base",
+        "peekOfCode": "pdf_files = glob.glob(\"PDFs/*.pdf\")\nfor pdf_file in pdf_files:\n    documents = PyPDFLoader(file_path=pdf_file).load()\n    for i in range(len(documents)):\n        qdrant.add_documents([documents[i]])\n# documents = PyPDFLoader(file_path=\"Introduction to Algorithm .pdf\").load()\n# for i in range(len(documents)):\n#     qdrant.add_documents([documents[i]])",
+        "detail": "knowledge_base",
+        "documentation": {}
+    },
+    {
+        "label": "QuerySignature",
+        "kind": 6,
+        "importPath": "rag",
+        "description": "rag",
+        "peekOfCode": "class QuerySignature(dspy.Signature):\n    '''\n    Provide complete and to-the-point answers to student queries regarding their subjects, including both theoretical questions and numerical problems, using content from textbooks.\n    *You are great in mathematics so show proper steps to solve numericals*\n    '''\n    context = dspy.InputField(desc=\"may contain relevant facts from textbooks\")\n    question: str = dspy.InputField(desc=\"Student's question, either theoretical or numerical\")\n    answer: str = dspy.OutputField(desc=\"Complete and to-the-point answer\")\nclass QuizInput(BaseModel):\n    topic: str = Field(description=\"The topic for the quiz\")",
+        "detail": "rag",
+        "documentation": {}
+    },
+    {
+        "label": "QuizInput",
+        "kind": 6,
+        "importPath": "rag",
+        "description": "rag",
+        "peekOfCode": "class QuizInput(BaseModel):\n    topic: str = Field(description=\"The topic for the quiz\")\n    context: list[str] = Field(description=\"Relevant context from ChromaDB\")\nclass QuizOption(BaseModel):\n    option: str = Field(description=\"A possible answer option\")\nclass QuizOutput(BaseModel):\n    question: str = Field(description=\"The generated quiz question\")\n    options: list[QuizOption] = Field(description=\"The list of answer options\")\n    correct_option: int = Field(ge=0, le=3, description=\"The index of the correct answer option\")\nclass QuizSignature(dspy.Signature):",
+        "detail": "rag",
+        "documentation": {}
+    },
+    {
+        "label": "QuizOption",
+        "kind": 6,
+        "importPath": "rag",
+        "description": "rag",
+        "peekOfCode": "class QuizOption(BaseModel):\n    option: str = Field(description=\"A possible answer option\")\nclass QuizOutput(BaseModel):\n    question: str = Field(description=\"The generated quiz question\")\n    options: list[QuizOption] = Field(description=\"The list of answer options\")\n    correct_option: int = Field(ge=0, le=3, description=\"The index of the correct answer option\")\nclass QuizSignature(dspy.Signature):\n    \"\"\"Generate a quiz question on a user-provided topic with 4 answer options.\"\"\"\n    input: QuizInput = dspy.InputField()\n    output: QuizOutput = dspy.OutputField()",
+        "detail": "rag",
+        "documentation": {}
+    },
+    {
+        "label": "QuizOutput",
+        "kind": 6,
+        "importPath": "rag",
+        "description": "rag",
+        "peekOfCode": "class QuizOutput(BaseModel):\n    question: str = Field(description=\"The generated quiz question\")\n    options: list[QuizOption] = Field(description=\"The list of answer options\")\n    correct_option: int = Field(ge=0, le=3, description=\"The index of the correct answer option\")\nclass QuizSignature(dspy.Signature):\n    \"\"\"Generate a quiz question on a user-provided topic with 4 answer options.\"\"\"\n    input: QuizInput = dspy.InputField()\n    output: QuizOutput = dspy.OutputField()\nclass ChatbotRAG(dspy.Module):\n    def __init__(self):",
+        "detail": "rag",
+        "documentation": {}
+    },
+    {
+        "label": "QuizSignature",
+        "kind": 6,
+        "importPath": "rag",
+        "description": "rag",
+        "peekOfCode": "class QuizSignature(dspy.Signature):\n    \"\"\"Generate a quiz question on a user-provided topic with 4 answer options.\"\"\"\n    input: QuizInput = dspy.InputField()\n    output: QuizOutput = dspy.OutputField()\nclass ChatbotRAG(dspy.Module):\n    def __init__(self):\n        super().__init__()\n        self.generate_answer = dspy.ChainOfThought(signature=QuerySignature)\n    def forward(self, question):\n        context = qdrant.search(",
+        "detail": "rag",
+        "documentation": {}
+    },
+    {
+        "label": "ChatbotRAG",
+        "kind": 6,
+        "importPath": "rag",
+        "description": "rag",
+        "peekOfCode": "class ChatbotRAG(dspy.Module):\n    def __init__(self):\n        super().__init__()\n        self.generate_answer = dspy.ChainOfThought(signature=QuerySignature)\n    def forward(self, question):\n        context = qdrant.search(\n            query=question,\n            search_type=\"similarity_score_threshold\"  \n        )\n        prediction = self.generate_answer(context = context, question=question)",
+        "detail": "rag",
+        "documentation": {}
+    },
+    {
+        "label": "QuizRAG",
+        "kind": 6,
+        "importPath": "rag",
+        "description": "rag",
+        "peekOfCode": "class QuizRAG(dspy.Module):\n    def __init__(self):\n        super().__init__() \n        self.generate_quiz = dspy.ChainOfThought(QuizSignature)\n    def forward(self, quiz_text):\n        context = qdrant.search(\n            query=quiz_text,\n            search_type=\"similarity_score_threshold\"\n        )\n        context_text = []",
+        "detail": "rag",
+        "documentation": {}
+    },
+    {
+        "label": "llm",
+        "kind": 5,
+        "importPath": "rag",
+        "description": "rag",
+        "peekOfCode": "llm = dspy.LM(\n    model = \"mistral-medium\", \n    api_key=MISTRAL_API_KEY, \n    api_base=\"https://api.mistral.ai/v1/\"\n)\ndspy.settings.configure(lm = llm)\nclass QuerySignature(dspy.Signature):\n    '''\n    Provide complete and to-the-point answers to student queries regarding their subjects, including both theoretical questions and numerical problems, using content from textbooks.\n    *You are great in mathematics so show proper steps to solve numericals*",
+        "detail": "rag",
+        "documentation": {}
+    },
+    {
+        "label": "dspy.settings.configure(lm",
+        "kind": 5,
+        "importPath": "rag",
+        "description": "rag",
+        "peekOfCode": "dspy.settings.configure(lm = llm)\nclass QuerySignature(dspy.Signature):\n    '''\n    Provide complete and to-the-point answers to student queries regarding their subjects, including both theoretical questions and numerical problems, using content from textbooks.\n    *You are great in mathematics so show proper steps to solve numericals*\n    '''\n    context = dspy.InputField(desc=\"may contain relevant facts from textbooks\")\n    question: str = dspy.InputField(desc=\"Student's question, either theoretical or numerical\")\n    answer: str = dspy.OutputField(desc=\"Complete and to-the-point answer\")\nclass QuizInput(BaseModel):",
+        "detail": "rag",
+        "documentation": {}
+    },
+    {
+        "label": "hero_logo",
+        "kind": 5,
+        "importPath": "web_content",
+        "description": "web_content",
+        "peekOfCode": "hero_logo = '''\n<style>\n    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');\n    body {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100vh;\n        background: #fff;\n        margin: 0;",
+        "detail": "web_content",
+        "documentation": {}
+    },
+    {
+        "label": "sidebar_logo",
+        "kind": 5,
+        "importPath": "web_content",
+        "description": "web_content",
+        "peekOfCode": "sidebar_logo = '''\n<style>\n    @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');\n    body {\n        display: flex;\n        align-items: center;\n        justify-content: center;\n        height: 100vh;\n        background: #fff;\n        margin: 0;",
+        "detail": "web_content",
+        "documentation": {}
+    },
+    {
+        "label": "api_key",
+        "kind": 5,
+        "importPath": "work",
+        "description": "work",
+        "peekOfCode": "api_key = 'AFENjNYLukhJROiwg5vvNKiZyV2T1Fq5'\nclient = Mistral(api_key=api_key)\nif \"state\" not in st.session_state:\n    st.session_state[\"state\"] = None \nselect = st.selectbox(label=\"choose the upload option\", options=[\"camera\", \"upload\"])\nst.session_state[\"state\"] = select \nimage_model = dspy.ChainOfThought(signature=ImageQuerySignature)\nif st.session_state[\"state\"] == \"camera\":\n    camera_input = st.camera_input(label=\"Take a shot of your question\")\n    if camera_input:",
+        "detail": "work",
+        "documentation": {}
+    },
+    {
+        "label": "client",
+        "kind": 5,
+        "importPath": "work",
+        "description": "work",
+        "peekOfCode": "client = Mistral(api_key=api_key)\nif \"state\" not in st.session_state:\n    st.session_state[\"state\"] = None \nselect = st.selectbox(label=\"choose the upload option\", options=[\"camera\", \"upload\"])\nst.session_state[\"state\"] = select \nimage_model = dspy.ChainOfThought(signature=ImageQuerySignature)\nif st.session_state[\"state\"] == \"camera\":\n    camera_input = st.camera_input(label=\"Take a shot of your question\")\n    if camera_input:\n        # Read the image file from the UploadedFile object and encode it as base64",
+        "detail": "work",
+        "documentation": {}
+    },
+    {
+        "label": "select",
+        "kind": 5,
+        "importPath": "work",
+        "description": "work",
+        "peekOfCode": "select = st.selectbox(label=\"choose the upload option\", options=[\"camera\", \"upload\"])\nst.session_state[\"state\"] = select \nimage_model = dspy.ChainOfThought(signature=ImageQuerySignature)\nif st.session_state[\"state\"] == \"camera\":\n    camera_input = st.camera_input(label=\"Take a shot of your question\")\n    if camera_input:\n        # Read the image file from the UploadedFile object and encode it as base64\n        image_bytes = camera_input.getvalue()\n        image_base64 = base64.b64encode(image_bytes).decode(\"utf-8\")\n        image_url = f\"data:image/jpeg;base64,{image_base64}\"",
+        "detail": "work",
+        "documentation": {}
+    },
+    {
+        "label": "st.session_state[\"state\"]",
+        "kind": 5,
+        "importPath": "work",
+        "description": "work",
+        "peekOfCode": "st.session_state[\"state\"] = select \nimage_model = dspy.ChainOfThought(signature=ImageQuerySignature)\nif st.session_state[\"state\"] == \"camera\":\n    camera_input = st.camera_input(label=\"Take a shot of your question\")\n    if camera_input:\n        # Read the image file from the UploadedFile object and encode it as base64\n        image_bytes = camera_input.getvalue()\n        image_base64 = base64.b64encode(image_bytes).decode(\"utf-8\")\n        image_url = f\"data:image/jpeg;base64,{image_base64}\"\n        ocr_response = client.ocr.process(",
+        "detail": "work",
+        "documentation": {}
+    },
+    {
+        "label": "image_model",
+        "kind": 5,
+        "importPath": "work",
+        "description": "work",
+        "peekOfCode": "image_model = dspy.ChainOfThought(signature=ImageQuerySignature)\nif st.session_state[\"state\"] == \"camera\":\n    camera_input = st.camera_input(label=\"Take a shot of your question\")\n    if camera_input:\n        # Read the image file from the UploadedFile object and encode it as base64\n        image_bytes = camera_input.getvalue()\n        image_base64 = base64.b64encode(image_bytes).decode(\"utf-8\")\n        image_url = f\"data:image/jpeg;base64,{image_base64}\"\n        ocr_response = client.ocr.process(\n            model=\"mistral-ocr-latest\",",
+        "detail": "work",
+        "documentation": {}
+    }
+]

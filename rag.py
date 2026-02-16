@@ -4,7 +4,11 @@ from knowledge_base import qdrant
 import os
 from config import MISTRAL_API_KEY
 
-llm = dspy.LM("mistral-medium", api_key=MISTRAL_API_KEY)
+llm = dspy.LM(
+    model = "mistral-medium", 
+    api_key=MISTRAL_API_KEY, 
+    api_base="https://api.mistral.ai/v1/"
+)
 
 dspy.settings.configure(lm = llm)
 
