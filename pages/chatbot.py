@@ -90,7 +90,9 @@ with s2:
                     with st.container(border=True, height=400):
                         st.image(images, caption=[os.path.basename(img) for img in images], use_container_width=True)
                 for img in images:
-                    os.remove(img)
+                    os.remove(img) 
+            else:
+                st.error("Error in loading of images") 
         st.header("Video Explanation")
         if st.session_state.history:
             q,r = st.session_state.history[-1]
