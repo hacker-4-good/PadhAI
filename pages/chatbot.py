@@ -1,6 +1,6 @@
 import streamlit as st 
 import os
-from icrawler.builtin import GoogleImageCrawler
+from icrawler.builtin import BingImageCrawler
 import nltk 
 import time
 from pytube import Search
@@ -22,7 +22,7 @@ client = ElevenLabs(
 nltk.download('averaged_perceptron_tagger')
 nltk.download('punkt')
 
-google_Crawler = GoogleImageCrawler(storage = {'root_dir': 'Images'})
+bing_Crawler = BingImageCrawler(storage = {'root_dir': 'Images'})
 
 s1, s2 = st.columns([3,1])
 
@@ -82,7 +82,7 @@ with s2:
         st.header("Images")
         if st.session_state.history:
             q,r = st.session_state.history[-1]
-            google_Crawler.crawl(keyword = f'show relevant Diagram or picture from NCERT textbook - Question: {q}, Answer: {r}', max_num = 5)
+            bing_Crawler.crawl(keyword = f'show relevant Diagram or picture from NCERT textbook - Question: {q}, Answer: {r}', max_num = 5)
             image_folder = 'Images'
             if os.path.exists(image_folder):
                 images = [os.path.join(image_folder, img) for img in os.listdir(image_folder) if img.endswith(('png', 'jpg', 'jpeg'))]
