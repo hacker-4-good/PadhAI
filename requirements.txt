@@ -3,7 +3,7 @@ langchain==1.2.12
 langchain-classic==1.0.1
 langchain-community==0.4.1
 langchain-core==1.2.19
-langchain-huggingface==0.3.1
+langchain-huggingface
 langchain-mistralai==1.1.2
 langchain-ollama==1.0.1
 langchain-qdrant==0.2.1
