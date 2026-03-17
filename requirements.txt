@@ -11,3 +11,6 @@ langchain-text-splitters
 qdrant-client
 streamlit
 icrawler
+markdown-it-py
+nltk
+pytube
