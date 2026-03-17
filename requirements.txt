@@ -16,3 +16,4 @@ nltk
 pytube
 sentence_transformers
 pypdf
+elevenlabs
