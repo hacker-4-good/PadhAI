@@ -89,6 +89,8 @@ jupyterlab_pygments==0.3.0
 jupyterlab_server==2.27.3
 kiwisolver==1.4.8
 langchain==0.3.27
+langchain_classic==1.0.1
+langchain_mistralai
 langchain-community==0.3.29
 langchain-core==0.3.76
 langchain-huggingface==0.3.1

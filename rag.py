@@ -1,8 +1,15 @@
+import json
+from langchain_mistralai import ChatMistralAI
+from langchain_qdrant import QdrantVectorStore
+from qdrant_client import QdrantClient
+from langchain_classic.prompts import PromptTemplate
+from langchain_classic.schema.runnable import RunnablePassthrough
+from langchain_core.output_parsers import StrOutputParser
+from langchain_huggingface import HuggingFaceEmbeddings
 import dspy 
-from pydantic import BaseModel, Field
 from knowledge_base import qdrant
 import os
-from config import MISTRAL_API_KEY
+from config import MISTRAL_API_KEY, QDRANT_API_KEY
 
 llm = dspy.LM(
     model = "mistral-medium", 
@@ -21,23 +28,6 @@ class QuerySignature(dspy.Signature):
     question: str = dspy.InputField(desc="Student's question, either theoretical or numerical")
     answer: str = dspy.OutputField(desc="Complete and to-the-point answer")
 
-class QuizInput(BaseModel):
-    topic: str = Field(description="The topic for the quiz")
-    context: list[str] = Field(description="Relevant context from ChromaDB")
-
-class QuizOption(BaseModel):
-    option: str = Field(description="A possible answer option")
-
-class QuizOutput(BaseModel):
-    question: str = Field(description="The generated quiz question")
-    options: list[QuizOption] = Field(description="The list of answer options")
-    correct_option: int = Field(ge=0, le=3, description="The index of the correct answer option")
-
-class QuizSignature(dspy.Signature):
-    """Generate a quiz question on a user-provided topic with 4 answer options."""
-    input: QuizInput = dspy.InputField()
-    output: QuizOutput = dspy.OutputField()
-
 
 class ChatbotRAG(dspy.Module):
     def __init__(self):
@@ -52,18 +42,124 @@ class ChatbotRAG(dspy.Module):
         prediction = self.generate_answer(context = context, question=question)
         return dspy.Prediction(context=context, answer=prediction.answer)
 
-class QuizRAG(dspy.Module):
+class QuizRAG:
+
     def __init__(self):
-        super().__init__() 
-        self.generate_quiz = dspy.ChainOfThought(QuizSignature)
-    def forward(self, quiz_text):
-        context = qdrant.search(
-            query=quiz_text,
-            search_type="similarity_score_threshold"
+
+        # ---------------------------
+        # QDRANT CLOUD (FIXED)
+        # ---------------------------
+        self.client = QdrantClient(
+            url="https://c1d43b77-3bca-4506-94aa-04dbfd414478.eu-west-2-0.aws.cloud.qdrant.io",
+            api_key=QDRANT_API_KEY
         )
-        context_text = []
-        for doc in context:
-            context_text.append(str(doc.page_content))
-        quiz_input = QuizInput(topic=str(quiz_text), context=context_text)
-        prediction = self.generate_quiz(input=quiz_input)
-        return prediction
+
+        self.vector_store = QdrantVectorStore(
+            client=self.client,
+            collection_name="Content",
+            embedding=HuggingFaceEmbeddings(
+                model_name="sentence-transformers/all-MiniLM-L6-v2"
+            )
+        )
+
+        self.retriever = self.vector_store.as_retriever(
+            search_type="similarity_score_threshold",
+            search_kwargs={"score_threshold": 0.6}
+        )
+
+        # ---------------------------
+        # LLM (STABLE JSON)
+        # ---------------------------
+        self.llm = ChatMistralAI(
+            model="mistral-medium",
+            api_key=MISTRAL_API_KEY,
+            base_url="https://api.mistral.ai/v1/",
+            temperature=0
+        )
+
+        # ---------------------------
+        # PROMPT (STRICT JSON)
+        # ---------------------------
+        self.prompt = PromptTemplate(
+            input_variables=["topic", "context"],
+            template="""
+            You are a quiz generation system.
+
+            STRICT RULES:
+            - Output MUST be valid JSON
+            - NO explanation
+            - NO markdown
+            - ONLY JSON
+
+            Schema:
+            {{
+            "topic": "<string>",
+            "questions": [
+                {{
+                "question": "<string>",
+                "options": ["A", "B", "C", "D"],
+                "answer": "<correct option>"
+                }}
+            ]
+            }}
+
+            Rules:
+            - Generate exactly 5 questions
+            - Each must have 4 options
+            - Answer must match one option exactly
+            - Use ONLY the given context
+
+            Topic: {topic}
+
+            Context:
+            {context}
+            """
+        )
+
+        # ---------------------------
+        # CHAIN
+        # ---------------------------
+        self.chain = (
+            {
+                "context": self.retriever | self.format_docs,
+                "topic": RunnablePassthrough()
+            }
+            | self.prompt
+            | self.llm
+            | StrOutputParser()
+        )
+
+    # ---------------------------
+    # FORMAT DOCS
+    # ---------------------------
+    def format_docs(self, docs):
+        return "\n\n".join(doc.page_content for doc in docs)
+
+    # ---------------------------
+    # SAFE JSON PARSER (IMPORTANT)
+    # ---------------------------
+    def json_parser(self, text):
+        try:
+            return json.loads(text)
+        except Exception:
+            # 🔥 Fix common LLM issues
+            text = text.strip()
+
+            # remove markdown if present
+            if text.startswith("```"):
+                text = text.split("```")[1]
+
+            return json.loads(text)
+
+    # ---------------------------
+    # RETRY LOGIC (VERY IMPORTANT)
+    # ---------------------------
+    def generate(self, topic, retries=3):
+        for _ in range(retries):
+            try:
+                raw_output = self.chain.invoke(topic)
+                return self.json_parser(raw_output)
+            except Exception:
+                continue
+
+        raise ValueError("Failed to generate valid JSON after retries")

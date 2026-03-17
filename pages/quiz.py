@@ -7,41 +7,88 @@ st.markdown(hero_logo, unsafe_allow_html=True)
 with st.sidebar:
     st.markdown(sidebar_logo, unsafe_allow_html=True)
 
-
 st.header("Quiz 📜")
-if 'quiz_state' not in st.session_state:
-    st.session_state.quiz_state = None
+
+# ---------------------------
+# Session State Init
+# ---------------------------
+if 'quiz_data' not in st.session_state:
+    st.session_state.quiz_data = None
+
+if 'current_q' not in st.session_state:
+    st.session_state.current_q = 0
+
 if 'quiz_score' not in st.session_state:
     st.session_state.quiz_score = {"correct": 0, "total": 0}
 
+# ---------------------------
+# Input Topic
+# ---------------------------
 user_topic = st.text_input("Enter the topic for the quiz:")
-if user_topic and st.session_state.quiz_state is None:
-    prediction = QuizRAG().forward(quiz_text=user_topic)
-    st.session_state.quiz_state = {
-        "question": prediction.output.question,
-        "options": [option.option for option in prediction.output.options],
-        "correct_option_index": prediction.output.correct_option,
-        "topic": user_topic
-    }
 
-if st.session_state.quiz_state:
-    quiz_state = st.session_state.quiz_state
-    st.write(f"**Quiz Topic:** {quiz_state['topic']}")
-    st.write(f"**Question:** {quiz_state['question']}")
-    selected_option = st.radio("Select an option:", quiz_state['options'], key="quiz_option")
-    if st.button("Check Answer"):
-        st.session_state.quiz_score["total"] += 1
-        if quiz_state['options'].index(selected_option) == quiz_state['correct_option_index']:
-            st.success("Correct!")
-            st.session_state.quiz_score["correct"] += 1
-        else:
-            st.error("Incorrect. Try again.")
-        st.session_state.quiz_state = None  # Reset quiz state after checking the answer
-    if st.session_state.quiz_score['total']==0:
-        pass
+# ---------------------------
+# Generate Quiz (JSON)
+# ---------------------------
+if user_topic and st.session_state.quiz_data is None:
+    with st.spinner("Generating quiz..."):
+        result = QuizRAG().generate(user_topic)  # ✅ changed
+
+        st.session_state.quiz_data = result
+        st.session_state.current_q = 0
+        st.session_state.quiz_score = {"correct": 0, "total": 0}
+
+# ---------------------------
+# Display Quiz
+# ---------------------------
+if st.session_state.quiz_data:
+    quiz_data = st.session_state.quiz_data
+    q_index = st.session_state.current_q
+
+    questions = quiz_data["questions"]
+
+    if q_index < len(questions):
+        q = questions[q_index]
+
+        st.write(f"**Topic:** {quiz_data['topic']}")
+        st.write(f"**Question {q_index + 1}:** {q['question']}")
+
+        selected_option = st.radio(
+            "Select an option:",
+            q["options"],
+            key=f"quiz_option_{q_index}"
+        )
+
+        if st.button("Check Answer"):
+            st.session_state.quiz_score["total"] += 1
+
+            if selected_option == q["answer"]:
+                st.success("Correct!")
+                st.session_state.quiz_score["correct"] += 1
+            else:
+                st.error(f"Incorrect. Correct answer: {q['answer']}")
+
+        # Score
+        if st.session_state.quiz_score["total"] > 0:
+            score = st.session_state.quiz_score
+            st.write(
+                f"**Score:** {score['correct']} / {score['total']} "
+                f"({(score['correct'] / score['total']) * 100:.2f}%)"
+            )
+
+        # Next Question
+        if st.button("Next Question"):
+            st.session_state.current_q += 1
+
     else:
-        st.write(f"**Score:** {st.session_state.quiz_score['correct']} out of {st.session_state.quiz_score['total']} "
-                f"({(st.session_state.quiz_score['correct'] / st.session_state.quiz_score['total']) * 100:.2f}%)")
+        st.success("🎉 Quiz Completed!")
 
-    if st.button("Next Question"):
-        st.session_state.quiz_state = None  # Reset quiz state to generate a new question
+        score = st.session_state.quiz_score
+        st.write(
+            f"**Final Score:** {score['correct']} / {score['total']} "
+            f"({(score['correct'] / score['total']) * 100:.2f}%)"
+        )
+
+        if st.button("Restart Quiz"):
+            st.session_state.quiz_data = None
+            st.session_state.current_q = 0
+            st.session_state.quiz_score = {"correct": 0, "total": 0}
