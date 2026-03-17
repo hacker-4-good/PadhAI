@@ -14,3 +14,4 @@ icrawler
 markdown-it-py
 nltk
 pytube
+sentence_transformers
