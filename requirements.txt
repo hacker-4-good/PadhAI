@@ -10,3 +10,4 @@ langchain-qdrant
 langchain-text-splitters
 qdrant-client
 streamlit
+icrawler
