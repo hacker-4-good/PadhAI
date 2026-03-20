@@ -146,8 +146,8 @@ class QuizRAG:
             text = text.strip()
 
             # remove markdown if present
-            if text.startswith("```"):
-                text = text.split("```")[1]
+            if text.startswith("```json"):
+                text = text.split("```json")[1].split("```")[0]
 
             return json.loads(text)
 
