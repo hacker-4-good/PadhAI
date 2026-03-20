@@ -78,6 +78,7 @@ if st.session_state.quiz_data:
         # Next Question
         if st.button("Next Question"):
             st.session_state.current_q += 1
+            st.rerun()
 
     else:
         st.success("🎉 Quiz Completed!")
