@@ -8,7 +8,7 @@ langchain-mistralai
 langchain-ollama
 langchain-qdrant
 langchain-text-splitters
-qdrant-client
+qdrant-client==1.15.0
 streamlit
 icrawler
 markdown-it-py
