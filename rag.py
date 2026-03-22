@@ -50,7 +50,7 @@ class QuizRAG:
         # QDRANT CLOUD (FIXED)
         # ---------------------------
         self.client = QdrantClient(
-            url="https://c1d43b77-3bca-4506-94aa-04dbfd414478.eu-west-2-0.aws.cloud.qdrant.io",
+            url="https://6d63122d-7b93-4b00-81e3-b454b3363930.eu-west-2-0.aws.cloud.qdrant.io",
             api_key=QDRANT_API_KEY
         )
 
